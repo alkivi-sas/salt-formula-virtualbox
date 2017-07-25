@@ -1,10 +1,13 @@
 {%- set host = salt['grains.filter_by']({
     'Debian': {
         'service': 'virtualbox',
-        'version': '4.3',
-    },
-    'RedHat': {
-        'service': 'virtualbox',
-        'version': '4.3',
+        'version': '5.1',
+        'user': 'vbox',
+        'password': 'vbox',
+        'timeout': '0',
+        'port': '18083',
+        'home': '/home/vbox/.VirtualBox',
+        'log': '/var/log/vboxwebservice.log',
+        'pid': '/run/vboxweb/vboxweb.pid',
     },
 }, merge=salt['pillar.get']('virtualbox:host')) %}

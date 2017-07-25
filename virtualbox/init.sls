@@ -1,5 +1,8 @@
+include: 
+  - .repository
+  - .install
+  - .user
+  - .folder
+  - .service
+  - .firewall
 
-include:
-{% if pillar.virtualbox.host is defined %}
-- virtualbox.host
-{% endif %}
