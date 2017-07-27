@@ -10,6 +10,7 @@ vbox-user:
     - password: vbox
     - groups: 
       - vboxusers
+      - daemon
     - require:
       - pkg: virtualbox-packages
 

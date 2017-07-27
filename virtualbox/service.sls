@@ -29,6 +29,12 @@ vbox-service-file:
     - require:
       - user: vbox-user
 
+vbox-service-reload:
+  cmd.run:
+    - name: systemctl daemon-reload
+    - cwd: /
+    - watch:
+      - file: vbox-service-file
 
 vbox-service-enable:
   service.running:

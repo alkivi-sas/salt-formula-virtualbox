@@ -1,3 +1,4 @@
+{% from "virtualbox/map.jinja" import host with context -%}
 [Unit]
 Description=VirtualBox Web Service
 After=network.target
@@ -5,9 +6,9 @@ After=network.target
 [Service]
 Type=forking
 PIDFile=/run/vboxweb/vboxweb.pid
-ExecStart=/usr/bin/vboxwebsrv --background
-User=vbox
-Group=vboxusers
+ExecStart=/usr/bin/vboxwebsrv --host {{ host.host }} --port {{ host.port }} --timeout {{ host.timeout }} --pidfile {{ host.pid }} --logfile {{ host.log }} --background 
+User={{ host.user }}
+Group={{ host.group }}
 
 [Install]
 WantedBy=multi-user.target
