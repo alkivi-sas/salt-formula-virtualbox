@@ -2,9 +2,9 @@
 
 virtualbox-repository:
   pkgrepo.managed:
+    - name: deb http://download.virtualbox.org/virtualbox/debian {{ grains.oscodename }} contrib
     - humanname: virtualbox
-    - mirrorlist: http://download.virtualbox.org/virtualbox/debian {{ grains.oscodename }} contrib
     - dist: stretch
     - file: /etc/apt/sources.list.d/virtualbox.list
     - gpgcheck: 1
-    - gpgkey: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    - key_url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
